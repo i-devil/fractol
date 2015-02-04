@@ -14,7 +14,7 @@
 
 int			loop_hook(t_all *all)
 {
-	if (all->img.re)
+	if (all->re)
 	{
 		//ft_bzero(all->img.data, WIN_WIDTH * WIN_HEIGHT * 4);
 		ft_draw_mandelbrot(all);
@@ -29,7 +29,7 @@ int			loop_hook(t_all *all)
 			"9/6 = rotation");
 		mlx_string_put(all->e.mlx, all->e.win, 10, 120, 0xFFFFFF,
 			"+/- = altitude");
-		all->img.re = 0;
+		all->re = 0;
 	}
 	return (0);
 }
