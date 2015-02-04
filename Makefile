@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 NAME	= fractol
-SRC		= main.c mandelbrot.c hook.c color.c draw.c
+SRC		= main.c hook.c color.c draw.c julia.c mandelbrot.c
 
 OBJ		= $(SRC:.c=.o)
 CC		= gcc
