@@ -18,9 +18,10 @@
 # include <math.h>
 # include "libft/includes/libft.h"
 # include "libft/includes/get_next_line.h"
+# include <X11/Xlib.h>
 
-# define WIN_HEIGHT 2560
-# define WIN_WIDTH 1440
+# define WIN_HEIGHT 1024
+# define WIN_WIDTH 1024
 
 typedef struct		s_env
 {
@@ -55,17 +56,37 @@ typedef struct		s_img
 	int				re;
 }					t_img;
 
+typedef struct		s_frac
+{
+	float 			z_r;
+	float 			z_i;
+	float 			c_r;
+	float 			c_i;
+	float 			a;
+	float 			b;
+}					t_frac;
+
+typedef struct		s_off
+{
+	int 			x;
+	int 			y;
+}					t_off;
+
 typedef struct		s_all
 {
 	t_env			e;
 	t_img			img;
 	t_pt2d			*pt;
+	t_frac 			frac;
 	float			scale;
 	int 			limit;
 	int 			max_ite;
 	int				re;
 	int 			frac_nb;
-
+	float 			c_r;
+	float 			c_i;
+	t_off			off;
+	int 			fix;
 }					t_all;
 
 typedef unsigned char	t_byte;
@@ -88,12 +109,13 @@ void		ft_choose_color(t_all *all, int i);
 
 void				ft_draw_mandelbrot(t_all *all);
 void				ft_draw_julia(t_all *all);
-void		ft_draw_douady(t_all *all);
+void				ft_draw_douady(t_all *all);
 
 int					loop_hook(t_all *all);
 int					expose_hook(t_all *all);
 int					key_hook(int keycode, t_all *all);
-
+int			mouse_move(int x, int y, t_all *all);
+int			mouse_hook(int button, int x, int y, t_all *all);
 
 
 #endif

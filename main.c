@@ -17,12 +17,13 @@ void		ft_init(t_all *all)
 {
 
 	all->img.adj = 2.0;
-	all->img.posimgx = WIN_WIDTH / 6;
-	all->img.posimgy = WIN_HEIGHT / 2;
+	all->off.x = -100;
+	all->off.y = -100;
 	all->re = 1;
 	all->limit = 4;
-	all->scale = 500;
+	all->scale = 300;
 	all->max_ite = 100;
+	all->fix = -1;
 
 }
 
@@ -61,8 +62,9 @@ int			main(int argc, char **argv)
 	all->img.img = mlx_new_image(all->e.mlx, WIN_WIDTH, WIN_HEIGHT);
 	all->img.data = mlx_get_data_addr(all->img.img, &all->img.bpp,
 	&all->img.size_line, &all->img.endian);
-	mlx_key_hook(all->e.win, key_hook, &all);
-	//mlx_mouse_hook(all->e.win, mouse_hook, &all);
+	mlx_hook(all->e.win, MotionNotify, PointerMotionMask, mouse_move, all);
+	mlx_key_hook(all->e.win, key_hook, all);
+	mlx_mouse_hook(all->e.win, mouse_hook, all);
 	mlx_loop_hook(all->e.mlx, loop_hook, all);
 	mlx_expose_hook(all->e.win, expose_hook, all);
 	mlx_loop(all->e.mlx);

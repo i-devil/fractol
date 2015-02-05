@@ -11,11 +11,11 @@
 # **************************************************************************** #
 
 NAME	= fractol
-SRC		= main.c hook.c color.c draw.c mandelbrot.c julia.c
+SRC		= main.c hook.c color.c draw.c mandelbrot.c julia.c 
 
 OBJ		= $(SRC:.c=.o)
 CC		= gcc
-FLAGS	= -Wall -Wextra -Werror -L/usr/X11/lib -lmlx -lXext -lX11
+FLAGS	= -Wall -Wextra -Werror -L/usr/X11/lib -lmlx -lXext -lX11 -I /opt/X11/include/
 
 all: $(NAME)
 

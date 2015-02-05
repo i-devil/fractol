@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "fractol.h"
-
+#include <stdio.h>
 int			loop_hook(t_all *all)
 {
 	if (all->re)
@@ -39,8 +39,19 @@ int			loop_hook(t_all *all)
 	return (0);
 }
 
+int			mouse_hook(int button, int x, int y, t_all *all)
+{
+	x = x;
+	y = y;
+	if (button == 1)
+		all->fix = -all->fix;
+	all->re = 1;
+	return(0);
+}
+
 int			key_hook(int keycode, t_all *all)
 {
+	(void)all;
 	if (keycode == 65307)
 	{
 		//mlx_destroy_image(all->e.mlx, all->img.img);
@@ -48,15 +59,31 @@ int			key_hook(int keycode, t_all *all)
 	}
 	if (keycode == 65464)
 	{
-		all->scale = all->scale + 10;
+		all->scale *= 2.0;
+		all->off.x -= WIN_WIDTH / 2.0;
+		all->off.y -= WIN_HEIGHT/2.0;
 		all->re = 1;
 	}
 	if (keycode == 65461)
 	{
-		all->scale = all->scale - 10;
+		all->scale /= 2.0;
+		all->off.x += WIN_WIDTH/2.0;
+		all->off.y += WIN_HEIGHT/2.0;
 		all->re = 1;
 	}
 	return (0);
+}
+
+
+int			mouse_move(int x, int y, t_all *all)
+{
+	if (all->fix < 0)
+	{
+		all->c_r = (float)((x - WIN_WIDTH / 2) / all->scale);
+		all->c_i = (float)((y - WIN_HEIGHT / 2) / all->scale);
+		all->re = 1;
+	}
+	return(0);
 }
 
 int			expose_hook(t_all *all)
