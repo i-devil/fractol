@@ -64,6 +64,7 @@ typedef struct		s_all
 	int 			limit;
 	int 			max_ite;
 	int				re;
+	int 			frac_nb;
 
 }					t_all;
 
@@ -76,20 +77,22 @@ typedef struct 		s_color
 	t_byte b;
 }					t_color;
 
-
-void				ft_error(int argc, char *argv);
 void				ft_init(t_all *all);
+void				ft_choose(int ac, char **av, t_all *all);
 
 void				ft_put_pixel(t_img *img, t_pt2d p);
 
 t_color				ft_rgb_to_color(unsigned char r, unsigned char g, unsigned char b);
 int					ft_color_to_int(t_color color);
-void				ft_put_color(double pos, t_all *all);
+void		ft_choose_color(t_all *all, int i);
 
 void				ft_draw_mandelbrot(t_all *all);
+void				ft_draw_julia(t_all *all);
+void		ft_draw_douady(t_all *all);
 
 int					loop_hook(t_all *all);
 int					expose_hook(t_all *all);
+int					key_hook(int keycode, t_all *all);
 
 
 

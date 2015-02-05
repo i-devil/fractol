@@ -31,23 +31,26 @@ void			ft_draw_mandelbrot(t_all *all)
 	while (pt.x < WIN_WIDTH)
 	{
 		pt.y = 0;
-		while (pt.y <WIN_HEIGHT)
+		while (pt.y < WIN_HEIGHT)
 		{
-			c_r = (pt.x * all->scale) + a;
-			c_i = (pt.y * all->scale) + b;
+			c_r = (pt.x / all->scale) + a;
+			c_i = (pt.y / all->scale) + b;
 			z_r = 0;
 			z_i = 0;
 			i = 0;
-			while ((i < all->max_ite) && ((z_r * z_r) + (c_r * c_r) < all->limit))
+			while ((i < all->max_ite) && ((z_r * z_r) + (z_i * z_i) < all->limit))
 			{
 				tmp = z_r;
 				z_r = (z_r * z_r) - (z_i * z_i) + c_r;
 				z_i = (2 * tmp * z_i) + c_i;
 				i++;
 			}
-			//color();
-			if (i == all->max_ite)
+			ft_choose_color(all, i);
+			// if (i == all->max_ite)
+			// {
+				
 				ft_put_pixel(&all->img, pt);
+			// }
 			pt.y++;
 		}
 		pt.x++;

@@ -33,6 +33,38 @@ int			ft_color_to_int(t_color color)
 	return (c);
 }
 
-/*void		ft_put_color(double pos, t_all *all)
+void		ft_choose_color(t_all *all, int i)
 {
-}*/
+	t_color	c;
+	int 	k;
+
+	k = 4;
+	if (i % k == 0)
+	{
+		c.r = 7;
+		c.g = 127;
+		c.b = 124;
+		all->img.color = ft_color_to_int(c);
+	}
+	else if (i % k == 1)
+	{
+		c.r = 10;
+		c.g = 127;
+		c.b = 92;
+		all->img.color = ft_color_to_int(c);
+	}
+	else if (i % k == 2)
+	{
+		c.r = 255;
+		c.g = 197;
+		c.b = 148;
+		all->img.color = ft_color_to_int(c);
+	}
+	else if (i % k == 3)
+	{
+		c.r = 0;
+		c.g = 215;
+		c.b = 255;
+		all->img.color = ft_color_to_int(c);
+	}
+}

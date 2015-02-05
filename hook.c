@@ -17,7 +17,12 @@ int			loop_hook(t_all *all)
 	if (all->re)
 	{
 		//ft_bzero(all->img.data, WIN_WIDTH * WIN_HEIGHT * 4);
-		ft_draw_mandelbrot(all);
+		if (all->frac_nb == 1)
+			ft_draw_mandelbrot(all);
+		else if (all->frac_nb == 2)
+			ft_draw_julia(all);
+		else if (all->frac_nb == 3)
+			ft_draw_douady(all);
 		mlx_put_image_to_window(all->e.mlx, all->e.win, all->img.img, 0, 0);
 		mlx_string_put(all->e.mlx, all->e.win, 10, 40, 0xFFFFFF,
 			"Mouse click or 8/5 = Zoom");
@@ -34,8 +39,25 @@ int			loop_hook(t_all *all)
 	return (0);
 }
 
-
-
+int			key_hook(int keycode, t_all *all)
+{
+	if (keycode == 65307)
+	{
+		//mlx_destroy_image(all->e.mlx, all->img.img);
+		exit(0);
+	}
+	if (keycode == 65464)
+	{
+		all->scale = all->scale + 10;
+		all->re = 1;
+	}
+	if (keycode == 65461)
+	{
+		all->scale = all->scale - 10;
+		all->re = 1;
+	}
+	return (0);
+}
 
 int			expose_hook(t_all *all)
 {
