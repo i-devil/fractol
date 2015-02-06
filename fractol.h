@@ -22,6 +22,7 @@
 
 # define WIN_HEIGHT 1024
 # define WIN_WIDTH 1024
+# define ZOOM 1.01
 
 typedef struct		s_env
 {

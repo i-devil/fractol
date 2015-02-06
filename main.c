@@ -22,7 +22,7 @@ void		ft_init(t_all *all)
 	all->re = 1;
 	all->limit = 4;
 	all->scale = 300;
-	all->max_ite = 100;
+	all->max_ite = 50;
 	all->fix = -1;
 
 }
