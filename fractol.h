@@ -106,17 +106,23 @@ void				ft_put_pixel(t_img *img, t_pt2d p);
 
 t_color				ft_rgb_to_color(unsigned char r, unsigned char g, unsigned char b);
 int					ft_color_to_int(t_color color);
-void		ft_choose_color(t_all *all, int i);
+void				ft_choose_color(t_all *all, int i);
 
 void				ft_draw_mandelbrot(t_all *all);
 void				ft_draw_julia(t_all *all);
 void				ft_draw_douady(t_all *all);
+void				ft_draw_julia2(t_all *all);
 
 int					loop_hook(t_all *all);
 int					expose_hook(t_all *all);
 int					key_hook(int keycode, t_all *all);
-int			mouse_move(int x, int y, t_all *all);
-int			mouse_hook(int button, int x, int y, t_all *all);
+int					mouse_move(int x, int y, t_all *all);
+int					mouse_hook(int button, int x, int y, t_all *all);
+
+void				move_up(t_all *all);
+void				move_down(t_all *all);
+void				move_right(t_all *all);
+void				move_left(t_all *all);
 
 
 #endif

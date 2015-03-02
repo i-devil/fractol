@@ -24,7 +24,6 @@ void			ft_draw_mandelbrot(t_all *all)
 	float		b;
 	float		tmp;
 
-	//pt = (t_pt2d *)(malloc(sizeof(t_pt2d)));
 	pt.x = 0;
 	a = -2.1;
 	b = -1.2;
@@ -46,16 +45,11 @@ void			ft_draw_mandelbrot(t_all *all)
 				i++;
 			}
 			ft_choose_color(all, i);
-			// if (i == all->max_ite)
-			// {
-				
-				ft_put_pixel(&all->img, pt);
-			// }
+			ft_put_pixel(&all->img, pt);
 			pt.y++;
 		}
 		pt.x++;
 	}
-	//free(pt);
 }
 
 

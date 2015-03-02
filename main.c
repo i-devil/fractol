@@ -15,7 +15,6 @@
 
 void		ft_init(t_all *all)
 {
-
 	all->img.adj = 2.0;
 	all->off.x = -100;
 	all->off.y = -100;
@@ -24,7 +23,6 @@ void		ft_init(t_all *all)
 	all->scale = 300;
 	all->max_ite = 50;
 	all->fix = -1;
-
 }
 
 void		ft_choose(int ac, char **av, t_all *all)
