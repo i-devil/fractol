@@ -6,7 +6,7 @@
 /*   By: ide-vill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/04 11:53:05 by ide-vill          #+#    #+#             */
-/*   Updated: 2015/02/04 11:57:26 by ide-vill         ###   ########.fr       */
+/*   Updated: 2015/03/03 23:19:44 by ide-vill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ void			ft_draw_mandelbrot(t_all *all)
 			z_r = 0;
 			z_i = 0;
 			i = 0;
-			while ((i < all->max_ite) && ((z_r * z_r) + (z_i * z_i) < all->limit))
+			while ((i < all->max_ite) &&
+					((z_r * z_r) + (z_i * z_i) < all->limit))
 			{
 				tmp = z_r;
 				z_r = (z_r * z_r) - (z_i * z_i) + c_r;
@@ -51,16 +52,3 @@ void			ft_draw_mandelbrot(t_all *all)
 		pt.x++;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

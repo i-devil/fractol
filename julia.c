@@ -1,10 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   julia.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ide-vill <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/03/03 23:15:40 by ide-vill          #+#    #+#             */
+/*   Updated: 2015/03/03 23:17:13 by ide-vill         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "fractol.h"
 
 void		ft_draw_julia(t_all *all)
 {
 	t_pt2d	pt;
-	t_frac 	frac;
+	t_frac	frac;
 	int		i;
 	float	tmp;
 
@@ -19,10 +30,12 @@ void		ft_draw_julia(t_all *all)
 			i = 0;
 			frac.z_r = ((pt.x + all->off.x) / all->scale) + frac.a;
 			frac.z_i = ((pt.y + all->off.y) / all->scale) + frac.b;
-			while ((i < all->max_ite) && ((frac.z_r * frac.z_r) + (frac.z_i * frac.z_i) < all->limit))
+			while ((i < all->max_ite) && ((frac.z_r * frac.z_r) +
+						(frac.z_i * frac.z_i) < all->limit))
 			{
 				tmp = frac.z_r;
-				frac.z_r = (frac.z_r * frac.z_r) - (frac.z_i * frac.z_i) + all->c_r;
+				frac.z_r = (frac.z_r * frac.z_r) - (frac.z_i * frac.z_i)
+					+ all->c_r;
 				frac.z_i = (2 * tmp * frac.z_i) + all->c_i;
 				i++;
 			}
@@ -33,8 +46,6 @@ void		ft_draw_julia(t_all *all)
 		pt.x++;
 	}
 }
-
-
 
 /*void		ft_draw_julia3(t_all *all)
 {

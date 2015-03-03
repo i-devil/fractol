@@ -6,7 +6,7 @@
 /*   By: ide-vill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/04 11:52:49 by ide-vill          #+#    #+#             */
-/*   Updated: 2015/02/04 11:52:54 by ide-vill         ###   ########.fr       */
+/*   Updated: 2015/03/03 23:18:28 by ide-vill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ void		ft_choose(int ac, char **av, t_all *all)
 	}
 	else
 	{
-		ft_putendl_fd("Error: Too many or too few arguments\n Use julia, mandelbrot or ??", 2);
+		ft_putendl_fd("Error: Too many or too few arguments\n
+				Use julia, mandelbrot or douady.", 2);
 		exit(0);
 	}
 }

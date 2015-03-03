@@ -6,7 +6,7 @@
 /*   By: ide-vill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/04 11:52:21 by ide-vill          #+#    #+#             */
-/*   Updated: 2015/02/04 11:57:28 by ide-vill         ###   ########.fr       */
+/*   Updated: 2015/03/03 23:14:55 by ide-vill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,18 +59,18 @@ typedef struct		s_img
 
 typedef struct		s_frac
 {
-	float 			z_r;
-	float 			z_i;
-	float 			c_r;
-	float 			c_i;
-	float 			a;
-	float 			b;
+	float			z_r;
+	float			z_i;
+	float			c_r;
+	float			c_i;
+	float			a;
+	float			b;
 }					t_frac;
 
 typedef struct		s_off
 {
-	int 			x;
-	int 			y;
+	int				x;
+	int				y;
 }					t_off;
 
 typedef struct		s_all
@@ -78,21 +78,21 @@ typedef struct		s_all
 	t_env			e;
 	t_img			img;
 	t_pt2d			*pt;
-	t_frac 			frac;
+	t_frac			frac;
 	float			scale;
-	int 			limit;
-	int 			max_ite;
+	int				limit;
+	int				max_ite;
 	int				re;
-	int 			frac_nb;
-	float 			c_r;
-	float 			c_i;
+	int				frac_nb;
+	float			c_r;
+	float			c_i;
 	t_off			off;
-	int 			fix;
+	int				fix;
 }					t_all;
 
 typedef unsigned char	t_byte;
 
-typedef struct 		s_color
+typedef struct		s_color
 {
 	t_byte r;
 	t_byte g;
@@ -101,28 +101,23 @@ typedef struct 		s_color
 
 void				ft_init(t_all *all);
 void				ft_choose(int ac, char **av, t_all *all);
-
 void				ft_put_pixel(t_img *img, t_pt2d p);
-
-t_color				ft_rgb_to_color(unsigned char r, unsigned char g, unsigned char b);
+t_color				ft_rgb_to_color(unsigned char r, unsigned char g,
+		unsigned char b);
 int					ft_color_to_int(t_color color);
 void				ft_choose_color(t_all *all, int i);
-
 void				ft_draw_mandelbrot(t_all *all);
 void				ft_draw_julia(t_all *all);
 void				ft_draw_douady(t_all *all);
 void				ft_draw_julia2(t_all *all);
-
 int					loop_hook(t_all *all);
 int					expose_hook(t_all *all);
 int					key_hook(int keycode, t_all *all);
 int					mouse_move(int x, int y, t_all *all);
 int					mouse_hook(int button, int x, int y, t_all *all);
-
 void				move_up(t_all *all);
 void				move_down(t_all *all);
 void				move_right(t_all *all);
 void				move_left(t_all *all);
-
 
 #endif
