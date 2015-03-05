@@ -6,7 +6,7 @@
 /*   By: ide-vill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/04 11:52:21 by ide-vill          #+#    #+#             */
-/*   Updated: 2015/03/03 23:14:55 by ide-vill         ###   ########.fr       */
+/*   Updated: 2015/03/05 16:46:25 by ide-vill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ typedef struct		s_frac
 	float			c_i;
 	float			a;
 	float			b;
+	int				i;
+	float			tmp;
 }					t_frac;
 
 typedef struct		s_off
@@ -109,6 +111,7 @@ void				ft_choose_color(t_all *all, int i);
 void				ft_draw_mandelbrot(t_all *all);
 void				ft_draw_julia(t_all *all);
 void				ft_draw_douady(t_all *all);
+void				ft_init_douady(t_pt2d *pt, t_frac *frac);
 void				ft_draw_julia2(t_all *all);
 int					loop_hook(t_all *all);
 int					expose_hook(t_all *all);

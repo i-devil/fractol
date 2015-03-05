@@ -34,20 +34,8 @@ int			ft_color_to_int(t_color color)
 	return (c);
 }
 
-void		ft_color1(int i, int k)
+void		ft_color1(int i, int k, t_all *all, t_color c)
 {
-}
-
-void		ft_color2(int i, int k)
-{
-}
-
-void		ft_choose_color(t_all *all, int i)
-{
-	t_color	c;
-	int		k;
-
-	k = 5;
 	if (i % k == 0)
 	{
 		c.r = 00;
@@ -69,7 +57,16 @@ void		ft_choose_color(t_all *all, int i)
 		c.b = 49;
 		all->img.color = ft_color_to_int(c);
 	}
-	else if (i % k == 3)
+}
+
+void		ft_choose_color(t_all *all, int i)
+{
+	t_color	c;
+	int		k;
+
+	k = 5;
+	ft_color1(i, k, all, c);
+	if (i % k == 3)
 	{
 		c.r = 207;
 		c.g = 66;

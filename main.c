@@ -37,14 +37,14 @@ void		ft_choose(int ac, char **av, t_all *all)
 			all->frac_nb = 3;
 		else
 		{
-			ft_putendl_fd("Error: \n Use julia, mandelbrot, or ??", 2);
+			ft_putendl_fd("Error: \n Use julia, mandelbrot, or douady", 2);
 			exit(0);
 		}
 	}
 	else
 	{
-		ft_putendl_fd("Error: Too many or too few arguments\n
-				Use julia, mandelbrot or douady.", 2);
+		ft_putendl_fd("Error: Too many or too few arguments\n", 2);
+		ft_putendl_fd("Use julia, mandelbrot or douady.", 2);
 		exit(0);
 	}
 }
