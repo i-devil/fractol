@@ -100,7 +100,6 @@ int			mouse_move(int x, int y, t_all *all)
 		all->re = 1;
 	}
 	return (0);
-	
 }
 
 int			expose_hook(t_all *all)
